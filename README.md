@@ -1,57 +1,124 @@
-# 📚 Exercícios de Programação Orientada a Objetos - Python
+# Exercícios de Programação Orientada a Objetos - Python
 
 Este repositório contém uma série de exercícios práticos de **Programação Orientada a Objetos (POO)** em Python, desenvolvidos no contexto de uma **Escola de Ensino Superior**.
 
-## 🎯 Objetivo
+## Objetivo
 
 Proporcionar aos estudantes uma experiência prática e progressiva dos conceitos fundamentais de POO através de exercícios que simulam situações reais de uma instituição de ensino.
 
-## 📋 Conceitos Abordados
+## Conceitos Abordados
 
-### 🏗️ Fundamentos de POO
-- **Classes e Objetos**: Estruturas básicas da programação orientada a objetos
-- **Construtores**: Inicialização de objetos com `__init__()`
-- **Atributos e Métodos**: Propriedades e comportamentos dos objetos
+### Fundamentos de POO
 
-### 🔒 Encapsulamento
-- **Atributos Privados**: Controle de acesso com `_atributo`
-- **Properties**: Uso de `@property` para getters e setters
-- **Validação de Dados**: Controle de entrada de dados nos métodos
+#### Classes e Objetos
+- **Classe**: Um modelo ou template que define a estrutura e comportamento de objetos. É como um "molde" que especifica quais atributos (dados) e métodos (funções) os objetos terão.
+- **Objeto**: Uma instância específica de uma classe. É a materialização concreta do modelo definido pela classe.
+- **Instanciação**: O processo de criar um objeto a partir de uma classe usando o operador de chamada `()`.
 
-### 🧬 Herança
-- **Classes Base e Derivadas**: Reutilização de código através de herança
-- **Método super()**: Chamada correta de construtores da classe pai
-- **Sobrescrita de Métodos**: Especialização de comportamentos
+#### Construtores
+- **Método `__init__()`**: Método especial chamado automaticamente quando um objeto é criado. Responsável por inicializar os atributos do objeto.
+- **Parâmetros do Construtor**: Valores passados durante a criação do objeto para configurar seu estado inicial.
+- **Self**: Referência ao próprio objeto, usado para acessar atributos e métodos da instância.
 
-### 🎭 Polimorfismo
-- **Métodos Polimórficos**: Mesmo método, comportamentos diferentes
-- **Interface Comum**: Objetos diferentes respondendo à mesma chamada
+#### Atributos e Métodos
+- **Atributos de Instância**: Variáveis que pertencem a cada objeto específico, definidas com `self.atributo`.
+- **Atributos de Classe**: Variáveis compartilhadas por todas as instâncias da classe.
+- **Métodos de Instância**: Funções que operam sobre dados específicos de cada objeto.
+- **Métodos de Classe**: Funções que operam sobre a classe como um todo, marcadas com `@classmethod`.
+- **Métodos Estáticos**: Funções relacionadas à classe mas que não acessam dados da instância ou classe, marcadas com `@staticmethod`.
 
-### 🔗 Relacionamentos entre Objetos
-- **Composição**: Relacionamento "tem um" (objeto contém outros objetos)
-- **Agregação**: Relacionamento "usa um" (objetos independentes que se referenciam)
-- **Relacionamentos N:N**: Muitos para muitos entre entidades
+### Encapsulamento
 
-### ⚙️ Recursos Avançados
-- **Métodos de Classe**: `@classmethod` para fábricas de objetos
-- **Métodos Estáticos**: `@staticmethod` para funcionalidades utilitárias
+#### Princípio do Encapsulamento
+O encapsulamento é um dos pilares fundamentais da POO que consiste em:
+- **Ocultar detalhes internos**: Proteger dados e implementação interna da classe
+- **Controlar acesso**: Definir como os dados podem ser acessados e modificados
+- **Manter integridade**: Garantir que o objeto sempre esteja em um estado válido
 
-## 📚 Lista de Exercícios
+#### Níveis de Visibilidade em Python
+- **Público**: Atributos e métodos acessíveis de qualquer lugar (`atributo`)
+- **Protegido**: Convenção para indicar uso interno, prefixo `_` (`_atributo`)
+- **Privado**: Dificultam acesso externo, prefixo `__` (`__atributo`)
+
+#### Properties e Getters/Setters
+- **@property**: Decorator que permite acessar métodos como se fossem atributos
+- **Getter**: Método para obter o valor de um atributo privado
+- **Setter**: Método para definir o valor de um atributo com validação
+- **Validação de Dados**: Verificações realizadas antes de alterar o estado do objeto
+
+### Herança
+
+#### Conceitos Fundamentais
+- **Classe Base (Pai/Superclasse)**: Classe que define características comuns
+- **Classe Derivada (Filha/Subclasse)**: Classe que herda e especializa a classe base
+- **Relação "é um"**: A herança representa uma relação hierárquica onde a subclasse "é um" tipo da superclasse
+
+#### Mecanismos de Herança
+- **Herança Simples**: Uma classe herda de apenas uma classe pai
+- **Herança Múltipla**: Uma classe herda de múltiplas classes pai (suportada em Python)
+- **Método super()**: Função que permite chamar métodos da classe pai
+- **Sobrescrita de Métodos**: Redefinição de métodos herdados para comportamento específico
+- **Extensão de Funcionalidade**: Adicionar novos métodos e atributos às classes filhas
+
+### Polimorfismo
+
+#### Definição e Tipos
+- **Polimorfismo**: Capacidade de objetos de diferentes classes responderem à mesma interface de forma específica
+- **Polimorfismo de Sobrescrita**: Mesmo método implementado diferentemente em classes relacionadas por herança
+- **Polimorfismo de Interface**: Objetos não relacionados que implementam os mesmos métodos
+
+#### Benefícios do Polimorfismo
+- **Flexibilidade**: Código que funciona com diferentes tipos de objetos
+- **Extensibilidade**: Facilita adição de novos tipos sem modificar código existente
+- **Manutenibilidade**: Reduz acoplamento entre componentes do sistema
+
+### Relacionamentos entre Objetos
+
+#### Composição
+- **Definição**: Relacionamento "tem um" onde um objeto contém outros objetos como partes integrantes
+- **Ciclo de Vida**: Os objetos componentes dependem do objeto principal
+- **Exemplo**: Um Carro "tem um" Motor - se o carro é destruído, o motor também é
+
+#### Agregação
+- **Definição**: Relacionamento "usa um" onde objetos existem independentemente mas se referenciam
+- **Ciclo de Vida**: Os objetos podem existir separadamente
+- **Exemplo**: Um Professor "leciona para" Alunos - professor e alunos existem independentemente
+
+#### Relacionamentos N:N (Muitos para Muitos)
+- **Definição**: Múltiplos objetos de um tipo se relacionam com múltiplos objetos de outro tipo
+- **Implementação**: Geralmente usando listas ou conjuntos para armazenar referências
+- **Exemplo**: Alunos podem estar matriculados em várias Disciplinas, e cada Disciplina pode ter vários Alunos
+
+### Recursos Avançados
+
+#### Métodos de Classe (@classmethod)
+- **Propósito**: Métodos que operam sobre a classe, não sobre instâncias específicas
+- **Primeiro Parâmetro**: `cls` (referência à classe)
+- **Uso Comum**: Factory methods (métodos fábrica) para criar objetos de formas específicas
+- **Acesso**: Podem ser chamados tanto pela classe quanto por instâncias
+
+#### Métodos Estáticos (@staticmethod)
+- **Propósito**: Funções relacionadas à classe mas que não precisam acessar dados da classe ou instância
+- **Parâmetros**: Não recebem `self` nem `cls` automaticamente
+- **Uso Comum**: Funções utilitárias relacionadas ao domínio da classe
+- **Acesso**: Podem ser chamados pela classe ou instâncias, mas funcionam como funções normais
+
+## Lista de Exercícios
 
 | Exercício | Conceito Principal | Descrição | Link |
 |-----------|-------------------|-----------|------|
-| 01 | **Modelagem Básica** | Criação de classes simples (Aluno, Disciplina) | [📄 Exercício 01](exercicio_01.md) |
-| 02 | **Métodos e Comportamento** | Adição de métodos para manipular estado | [📄 Exercício 02](exercicio_02.md) |
-| 03 | **Encapsulamento** | Atributos privados e properties | [📄 Exercício 03](exercicio_03.md) |
-| 04 | **Herança Simples** | Classes base e derivadas | [📄 Exercício 04](exercicio_04.md) |
-| 05 | **Herança com super()** | Uso correto de super() em construtores | [📄 Exercício 05](exercicio_05.md) |
-| 06 | **Composição** | Relacionamento "tem um" entre objetos | [📄 Exercício 06](exercicio_06.md) |
-| 07 | **Agregação N:N** | Relacionamentos muitos-para-muitos | [📄 Exercício 07](exercicio_07.md) |
-| 08 | **Métodos de Classe** | Factory methods com @classmethod | [📄 Exercício 08](exercicio_08.md) |
-| 09 | **Polimorfismo** | Diferentes implementações do mesmo método | [📄 Exercício 09](exercicio_09.md) |
-| 10 | **Jogo dos 7 Erros** | Identificação e correção de erros comuns | [📄 Exercício 10](exercicio_10.md) |
+| 01 | **Modelagem Básica** | Criação de classes simples (Aluno, Disciplina) | [Exercício 01](exercicio_01.md) |
+| 02 | **Métodos e Comportamento** | Adição de métodos para manipular estado | [Exercício 02](exercicio_02.md) |
+| 03 | **Encapsulamento** | Atributos privados e properties | [Exercício 03](exercicio_03.md) |
+| 04 | **Herança Simples** | Classes base e derivadas | [Exercício 04](exercicio_04.md) |
+| 05 | **Herança com super()** | Uso correto de super() em construtores | [Exercício 05](exercicio_05.md) |
+| 06 | **Composição** | Relacionamento "tem um" entre objetos | [Exercício 06](exercicio_06.md) |
+| 07 | **Agregação N:N** | Relacionamentos muitos-para-muitos | [Exercício 07](exercicio_07.md) |
+| 08 | **Métodos de Classe** | Factory methods com @classmethod | [Exercício 08](exercicio_08.md) |
+| 09 | **Polimorfismo** | Diferentes implementações do mesmo método | [Exercício 09](exercicio_09.md) |
+| 10 | **Jogo dos 7 Erros** | Identificação e correção de erros comuns | [Exercício 10](exercicio_10.md) |
 
-## 🏫 Contexto dos Exercícios
+## Contexto dos Exercícios
 
 Todos os exercícios são baseados em entidades e situações de uma **escola de ensino superior**:
 
@@ -63,9 +130,9 @@ Todos os exercícios são baseados em entidades e situações de uma **escola de
 - **🏢 Departamento**: Professores, área de atuação
 - **🏛️ Secretaria**: Gerenciamento de matrículas
 
-## 🚀 Como Usar
+## Como Usar
 
-### 📋 Para Estudantes
+### Para Estudantes
 
 1. **Fork este repositório**: Clique em "Fork" no GitHub para criar sua cópia
 2. **Clone seu fork**: `git clone https://github.com/SEU_USUARIO/EngSoftPraticaPOO.git`
@@ -75,16 +142,16 @@ Todos os exercícios são baseados em entidades e situações de uma **escola de
 6. **Commit e push**: Envie suas alterações para seu fork
 7. **Abra um Pull Request**: Submeta sua solução para correção automática
 
-### 🤖 Correção Automática
+### Correção Automática
 
 Este repositório possui **correção automática via GitHub Actions**!
 
-- ✅ **Ao abrir um Pull Request**, os testes são executados automaticamente
-- 🧪 **Cada exercício é testado** individualmente
-- 📊 **Resultado aparece como comentário** no seu PR
-- 🎯 **Feedback imediato** sobre acertos e erros
+- **Ao abrir um Pull Request**, os testes são executados automaticamente
+- **Cada exercício é testado** individualmente
+- **Resultado aparece como comentário** no seu PR
+- **Feedback imediato** sobre acertos e erros
 
-### 📝 Nomenclatura dos Arquivos
+### Nomenclatura dos Arquivos
 
 Para que a correção automática funcione, nomeie seus arquivos corretamente:
 
@@ -94,7 +161,7 @@ Para que a correção automática funcione, nomeie seus arquivos corretamente:
 - ...
 - `Resposta_10.py` - Exercício 10 (Jogo dos 7 Erros)
 
-### 🔄 Fluxo de Trabalho
+### Fluxo de Trabalho
 
 ```bash
 # 1. Fork e clone
@@ -116,34 +183,34 @@ git push origin exercicio-01
 # A correção automática será executada!
 ```
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```
-📦 EngSoftPraticaPOO/
-├── 📄 README.md                 # Este arquivo
-├── 📄 .gitignore               # Arquivos ignorados pelo Git
-├── 📄 requirements.txt         # Dependências Python
-├── 📁 .github/
-│   └── 📁 workflows/
-│       └── 📄 test-exercises.yml  # GitHub Actions
-├── 📁 tests/
-│   ├── 📄 test_exercicio01.py   # Testes do exercício 1
-│   ├── 📄 test_exercicio02.py   # Testes do exercício 2
+EngSoftPraticaPOO/
+├── README.md                 # Este arquivo
+├── .gitignore               # Arquivos ignorados pelo Git
+├── requirements.txt         # Dependências Python
+├── .github/
+│   └── workflows/
+│       └── test-exercises.yml  # GitHub Actions
+├── tests/
+│   ├── test_exercicio01.py   # Testes do exercício 1
+│   ├── test_exercicio02.py   # Testes do exercício 2
 │   └── ...                    # Demais testes
-├── 📄 exercicio_01.md          # Exercício 1: Modelagem Básica
-├── 📄 exercicio_02.md          # Exercício 2: Métodos
-├── 📄 exercicio_03.md          # Exercício 3: Encapsulamento
-├── 📄 exercicio_04.md          # Exercício 4: Herança
-├── 📄 exercicio_05.md          # Exercício 5: super()
-├── 📄 exercicio_06.md          # Exercício 6: Composição
-├── 📄 exercicio_07.md          # Exercício 7: Agregação
-├── 📄 exercicio_08.md          # Exercício 8: @classmethod
-├── 📄 exercicio_09.md          # Exercício 9: Polimorfismo
-├── 📄 exercicio_10.md          # Exercício 10: Jogo dos 7 Erros
-└── 🔒 Arquivos de resposta     # (Incluídos no .gitignore)
+├── exercicio_01.md          # Exercício 1: Modelagem Básica
+├── exercicio_02.md          # Exercício 2: Métodos
+├── exercicio_03.md          # Exercício 3: Encapsulamento
+├── exercicio_04.md          # Exercício 4: Herança
+├── exercicio_05.md          # Exercício 5: super()
+├── exercicio_06.md          # Exercício 6: Composição
+├── exercicio_07.md          # Exercício 7: Agregação
+├── exercicio_08.md          # Exercício 8: @classmethod
+├── exercicio_09.md          # Exercício 9: Polimorfismo
+├── exercicio_10.md          # Exercício 10: Jogo dos 7 Erros
+└── Arquivos de resposta     # (Incluídos no .gitignore)
 ```
 
-## 🎓 Progressão Recomendada
+## Progressão Recomendada
 
 Os exercícios foram organizados em ordem crescente de complexidade:
 
@@ -152,24 +219,24 @@ Os exercícios foram organizados em ordem crescente de complexidade:
 3. **Avançado** (Ex. 7-9): Relacionamentos complexos, polimorfismo
 4. **Desafio** (Ex. 10): Identificação e correção de erros
 
-## 🧪 Testes Automáticos
+## Testes Automáticos
 
 Cada exercício possui testes automatizados que verificam:
 
-- ✅ **Existência das classes** solicitadas
-- ✅ **Implementação dos métodos** obrigatórios
-- ✅ **Funcionamento correto** dos conceitos de POO
-- ✅ **Relacionamentos** entre objetos
-- ✅ **Herança e polimorfismo** adequados
-- ✅ **Encapsulamento** correto
+- **Existência das classes** solicitadas
+- **Implementação dos métodos** obrigatórios
+- **Funcionamento correto** dos conceitos de POO
+- **Relacionamentos** entre objetos
+- **Herança e polimorfismo** adequados
+- **Encapsulamento** correto
 
-### 📈 Interpretando os Resultados
+### Interpretando os Resultados
 
-- 🔴 **Vermelho (Failed)**: Exercício com erros - verifique os logs
-- 🟢 **Verde (Passed)**: Exercício aprovado - parabéns!
-- 🟡 **Amarelo (Pending)**: Testes em execução - aguarde
+- **Vermelho (Failed)**: Exercício com erros - verifique os logs
+- **Verde (Passed)**: Exercício aprovado - parabéns!
+- **Amarelo (Pending)**: Testes em execução - aguarde
 
-## 💡 Dicas de Estudo
+## Dicas de Estudo
 
 - **Pratique gradualmente**: Não pule exercícios
 - **Entenda antes de implementar**: Leia bem os requisitos
@@ -178,11 +245,11 @@ Cada exercício possui testes automatizados que verificam:
 - **Refatore quando necessário**: Melhore seu código após funcionar
 - **Use as convenções Python**: PEP 8 para estilo de código
 
-## 🤝 Contribuições
+## Contribuições
 
 Este material foi desenvolvido para fins educacionais. Sugestões de melhorias são bem-vindas!
 
-## 📞 Suporte
+## Suporte
 
 Para dúvidas sobre os exercícios:
 
@@ -192,7 +259,7 @@ Para dúvidas sobre os exercícios:
 4. **Estude os conceitos teóricos de POO**
 5. **Compare com os exemplos** nos arquivos `.md`
 
-### 🔍 Debugando Problemas Comuns
+### Debugando Problemas Comuns
 
 - **ImportError**: Verifique o nome do arquivo
 - **AttributeError**: Classe ou método não implementado
@@ -201,4 +268,4 @@ Para dúvidas sobre os exercícios:
 
 ---
 
-**Bons estudos! 🚀**
+**Bons estudos!**
